@@ -3,10 +3,9 @@
 public class PlayerController : MonoBehaviour {
 
     [SerializeField]
-    private float _speed;
+    private float _playerSpeed;
 
     private Rigidbody _rb;
-    private Vector3 _stop = new Vector3(0.0f, 0.0f, 0.0f);
 
     // Use this for initialization
     void Start () {
@@ -39,6 +38,6 @@ public class PlayerController : MonoBehaviour {
         }
 
         // TODO: multiplicand of speed should use pythagorus
-        _rb.velocity = new Vector3(x * _speed, 0.0f, z * _speed);
+        _rb.velocity = new Vector3(x * _playerSpeed, 0.0f, z * _playerSpeed);
     }
 }
