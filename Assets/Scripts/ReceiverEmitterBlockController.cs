@@ -11,6 +11,9 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
     private List<GameObject> _emitters;
 
     [SerializeField]
+    private int _requiredReceivers;
+
+    [SerializeField]
     private Text _debugText;
 
     private bool[] _triggeredReceivers;
@@ -23,22 +26,26 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
     public void ActivateReceiver(int index)
     {
         _triggeredReceivers[index] = true;
-        bool allTriggered = true;
+        int numTriggered = 0;
         foreach (bool triggered in _triggeredReceivers)
         {
-            if (!triggered)
+            if (triggered)
             {
-                allTriggered = false;
-                break;
+                numTriggered++;
             }
         }
 
-        if (allTriggered)
+        if (numTriggered >= _requiredReceivers)
         {
             _debugText.text = "All receivers triggered";
             foreach (GameObject emitter in _emitters)
             {
                 emitter.SendMessage("FireLaser");
+            }
+
+            for (int i = 0; i < _triggeredReceivers.Length; i++)
+            {
+                _triggeredReceivers[i] = false;
             }
         }
     }

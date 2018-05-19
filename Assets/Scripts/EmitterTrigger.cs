@@ -8,11 +8,18 @@ public class EmitterTrigger : MonoBehaviour {
     private GameObject _shot;
 
     [SerializeField]
-    private float _offset;
+    private float _xOffset;
+
+    [SerializeField]
+    private float _yOffset;
+
+    [SerializeField]
+    private float _zOffset;
 
     public void FireLaser()
     {
-        Debug.Log(name + " fire lasers!");
-        Instantiate(_shot, transform.position + Vector3.right * _offset, transform.rotation * Quaternion.Euler(Vector3.left * 90.0f));
+        Instantiate(_shot, 
+            transform.position + Vector3.right * _xOffset + Vector3.up * _yOffset + Vector3.forward * _zOffset, 
+            transform.rotation * Quaternion.Euler(Vector3.left * 90.0f));
     }
 }
