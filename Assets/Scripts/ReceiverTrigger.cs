@@ -19,7 +19,7 @@ public class ReceiverTrigger : MonoBehaviour {
 	[SerializeField]
 	TriggerType _triggerType;
 
-	public TriggerType triggerType { get { return _triggerType; } }
+	public TriggerType triggerType { get { return _triggerType; } set { _triggerType = value; } }
 
 	[SerializeField]
 	LaserType _laserType;
