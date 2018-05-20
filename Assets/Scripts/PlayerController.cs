@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
@@ -32,6 +33,15 @@ public class PlayerController : MonoBehaviour {
     {
         UpdateVelocity();
         HandleShot();
+        CheckForRestart();
+    }
+
+    private void CheckForRestart()
+    {
+        if (Input.GetKey(KeyCode.G))
+        {
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        }
     }
 
     private void HandleShot()
