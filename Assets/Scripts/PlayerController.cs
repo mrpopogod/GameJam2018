@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
             // On the shape, Z=0 is up on the playfield, so subtract 90 to have it be pointing to the right of the playfield;
             // that way the calculation is correct
             Quaternion finalAngle = Quaternion.Euler(90.0f, 0.0f, angle - 90.0f);
-            Instantiate(_shot, _shotSpawn.position, finalAngle);
+            GameObject shot = Instantiate(_shot, _shotSpawn.position , finalAngle);
         }
     }
 
