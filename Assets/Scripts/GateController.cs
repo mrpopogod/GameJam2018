@@ -18,7 +18,10 @@ public class GateController : MonoBehaviour {
 	
     public void Energize()
     {
-        _triggerTime = Time.time;
+        if (Time.time > _triggerTime + _timeActive + _movementTime + _movementTime)
+        {
+            _triggerTime = Time.time;
+        }
     }
 
 	public void Update()

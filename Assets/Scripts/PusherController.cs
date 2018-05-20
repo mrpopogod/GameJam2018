@@ -12,7 +12,10 @@ public class PusherController : MonoBehaviour {
 
     public void Energize()
     {
-        _triggerTime = Time.time;
+        if (Time.time > _triggerTime + _movementTime + _movementTime)
+        {
+            _triggerTime = Time.time;
+        }
     }
 
     public void Update()

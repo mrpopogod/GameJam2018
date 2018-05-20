@@ -34,7 +34,7 @@ public class ReceiverTrigger : MonoBehaviour {
 	private MeshRenderer _indicatorRenderer;
 	private float _lastLaserType;
 
-    private float _triggerTime;
+    private float _triggerTime = -100.0f;
 
 	// Transmitter Fields
 
@@ -93,9 +93,9 @@ public class ReceiverTrigger : MonoBehaviour {
 
 	public void OnEnable()
 	{
-		SetMaterialManager ();
-		SetIndicator ();
-		UpdateIndicator ();
+		SetMaterialManager();
+		SetIndicator();
+		UpdateIndicator();
 	}
 
     public void OnTriggerEnter(Collider other)
@@ -114,13 +114,16 @@ public class ReceiverTrigger : MonoBehaviour {
 	// Invoked when changes are made in inspector
 	public void OnValidate()
 	{
-		UpdateIndicator ();
+		UpdateIndicator();
 	}
 
 	public void FireLaser()
 	{
 		if (_triggerType != TriggerType.Transmitter)
-			return;
+        {
+            _triggerTime = -100.0f;
+            return;
+        }
 
 		Debug.LogFormat ("Firing: {0}", _triggerType);
 		Instantiate(_shot, 
