@@ -18,12 +18,22 @@ public class GateController : MonoBehaviour {
     private bool _doorStaysOpen;
 
     private float _triggerTime = -100.0f;
+    private bool _noCloseDoorOpen = false;
 	
     public void Energize()
     {
+        if (_noCloseDoorOpen)
+        {
+            return;
+        }
+
         if (Time.time > _triggerTime + _timeActive + _movementTime + _movementTime)
         {
             _triggerTime = Time.time;
+            if (_doorStaysOpen)
+            {
+                _noCloseDoorOpen = true;
+            }
         }
     }
 
