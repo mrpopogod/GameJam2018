@@ -3708,6 +3708,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 23
       objectReference: {fileID: 0}
+    - target: {fileID: 114980154960814872, guid: 0c4514fb23fb7384e97571fb2c9fab9a,
+        type: 2}
+      propertyPath: _nextLevel
+      value: 5.Rotating Laser Block
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c4514fb23fb7384e97571fb2c9fab9a, type: 2}
   m_IsPrefabParent: 0
