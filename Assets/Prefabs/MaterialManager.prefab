@@ -51,5 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 935fe8a3b3e80af47ad608e565642ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReceiverMaterial: {fileID: 2100000, guid: 9ea69960797de764994acf50ca023c6f, type: 2}
-  TransmitterMaterial: {fileID: 2100000, guid: 0316ef76e3407c145b1446321c3259ad, type: 2}
+  _receiverMaterial: {fileID: 2100000, guid: 9ea69960797de764994acf50ca023c6f, type: 2}
+  _transmitterMaterial: {fileID: 2100000, guid: 0316ef76e3407c145b1446321c3259ad,
+    type: 2}
+  _rotateRightMaterial: {fileID: 2100000, guid: 6f86948e73ebf004bb73b13179b71c14,
+    type: 2}
+  _rotateLeftMaterial: {fileID: 2100000, guid: b9e245634d5468446abd9cac72a431fc, type: 2}
+  _defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  _redMaterial: {fileID: 2100000, guid: f6b483f35d4f7814a87c16fed4047f75, type: 2}
+  _greenMaterial: {fileID: 2100000, guid: 66297e95872db5d4198b00a2824778dc, type: 2}
+  _blueMaterial: {fileID: 2100000, guid: b7d172fdbb7d79e48ad7c819e8755a87, type: 2}

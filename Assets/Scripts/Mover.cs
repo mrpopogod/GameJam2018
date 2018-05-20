@@ -7,6 +7,8 @@ public class Mover : MonoBehaviour {
 
     private Rigidbody _rb;
 
+	public float Speed { get { return _speed; } set { _speed = value; } }
+
     public void Start()
     {
         _rb = GetComponent<Rigidbody>();

@@ -28,4 +28,19 @@ public class MaterialManager : MonoBehaviour {
     private Material _defaultMaterial;
 
     public Material defaultMaterial { get { return _defaultMaterial; } }
+
+	[SerializeField]
+	private Material _redMaterial;
+
+	public Material redMaterial { get { return _redMaterial; } }
+
+	[SerializeField]
+	private Material _greenMaterial;
+
+	public Material greenMaterial { get { return _greenMaterial; } }
+
+	[SerializeField]
+	private Material _blueMaterial;
+
+	public Material blueMaterial { get { return _blueMaterial; } }
 }

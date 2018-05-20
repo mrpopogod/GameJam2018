@@ -757,7 +757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerType: 1
-  _laserType: 1
+  _laserType: 0
   _timeActive: 2
   _shot: {fileID: 1033697974858052, guid: 5f3e11ca1f452c748b501e1f4e45ea04, type: 2}
   _xOffset: 0
@@ -797,11 +797,7 @@ MonoBehaviour:
   - {fileID: 1432608424386002}
   - {fileID: 1441975894367590}
   - {fileID: 1987139886967608}
-  _emitters:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _linkedObjects: []
   _requiredReceivers: 0
   _debugText: {fileID: 0}
 --- !u!114 &114833371843847050
@@ -815,7 +811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4f4bd9c2eaa5245b9a215021ccf106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 2
+  _triggerType: 0
   _laserType: 0
   _timeActive: 2
   _shot: {fileID: 1033697974858052, guid: 5f3e11ca1f452c748b501e1f4e45ea04, type: 2}
@@ -834,7 +830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerType: 2
-  _laserType: 1
+  _laserType: 0
   _timeActive: 2
   _shot: {fileID: 1033697974858052, guid: 5f3e11ca1f452c748b501e1f4e45ea04, type: 2}
   _xOffset: 0

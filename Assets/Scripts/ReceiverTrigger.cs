@@ -9,12 +9,6 @@ public class ReceiverTrigger : MonoBehaviour {
 		Transmitter
 	}
 
-	public enum LaserType
-	{
-		GreenLaser,
-		BlueLaser,
-		RedLaser
-	}
 
 	[SerializeField]
 	TriggerType _triggerType;
@@ -22,7 +16,7 @@ public class ReceiverTrigger : MonoBehaviour {
 	public TriggerType triggerType { get { return _triggerType; } set { _triggerType = value; } }
 
 	[SerializeField]
-	LaserType _laserType;
+	Laser.Type _laserType;
 
 	private MaterialManager _materialManager;
 
@@ -32,7 +26,6 @@ public class ReceiverTrigger : MonoBehaviour {
     private float _timeActive;
 
 	private MeshRenderer _indicatorRenderer;
-	private float _lastLaserType;
 
     private float _triggerTime = -100.0f;
 
@@ -104,6 +97,9 @@ public class ReceiverTrigger : MonoBehaviour {
 		Debug.Log ("OnTriggerEnter");
         if (other.tag == "Laser" && _triggerType == TriggerType.Receiver)
         {
+			Laser laser = other.GetComponent<Laser> ();
+			if (_laserType != Laser.Type.Any && laser.LaserType != Laser.Type.Any && laser.LaserType != _laserType)
+				return;
             _triggerTime = Time.time;
             GameObject parent = transform.parent.gameObject;
 			Debug.Log ("Send message");
@@ -124,10 +120,10 @@ public class ReceiverTrigger : MonoBehaviour {
         {
             return;
         }
-
-		Debug.LogFormat ("Firing: {0}", _triggerType);
-		Instantiate(_shot, 
+			
+		var shot = Instantiate(_shot, 
 			transform.position + Vector3.right * _xOffset + Vector3.up * _yOffset + Vector3.forward * _zOffset, 
 			transform.rotation * Quaternion.Euler(Vector3.left * 90.0f));
+		shot.GetComponent<Laser>().LaserType = _laserType;
 	}
 }
