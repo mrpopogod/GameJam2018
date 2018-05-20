@@ -48,7 +48,9 @@ public class PlayerController : MonoBehaviour {
             // that way the calculation is correct
             Quaternion finalAngle = Quaternion.Euler(90.0f, 0.0f, angle - 90.0f);
             var shot = Instantiate(_shot, _shotSpawn.position , finalAngle);
-			shot.GetComponent<Laser>().LaserType = _laserType;
+			var laser = shot.GetComponent<Laser> ();
+			laser.Source = gameObject;
+			laser.LaserType = _laserType;
         }
     }
 

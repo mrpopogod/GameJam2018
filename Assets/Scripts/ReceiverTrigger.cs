@@ -145,6 +145,8 @@ public class ReceiverTrigger : MonoBehaviour {
 		var shot = Instantiate(_shot, 
 			transform.position + Vector3.right * _xOffset + Vector3.up * _yOffset + Vector3.forward * _zOffset, 
 			transform.rotation * Quaternion.Euler(Vector3.left * 90.0f));
-		shot.GetComponent<Laser>().LaserType = _laserType;
+		var laser = shot.GetComponent<Laser> ();
+		laser.Source = gameObject;
+		laser.LaserType = _laserType;
 	}
 }

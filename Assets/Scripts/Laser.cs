@@ -16,6 +16,10 @@ public class Laser : MonoBehaviour {
 	[SerializeField]
 	Type _type;
 
+	[SerializeField]
+	private GameObject _source;
+	public GameObject Source { get { return _source; } set { _source = value; } }
+
 	Mover _mover;
 	Renderer _renderer;
 	MaterialManager _materials;
