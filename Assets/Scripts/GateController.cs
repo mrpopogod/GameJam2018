@@ -14,6 +14,9 @@ public class GateController : MonoBehaviour {
     [SerializeField]
     private float _movementTime;
 
+    [SerializeField]
+    private bool _doorStaysOpen;
+
     private float _triggerTime = -100.0f;
 	
     public void Energize()
@@ -26,7 +29,7 @@ public class GateController : MonoBehaviour {
 
 	public void Update()
     {
-        if (Time.time > _triggerTime + _timeActive + _movementTime)
+        if (!_doorStaysOpen && Time.time > _triggerTime + _timeActive + _movementTime)
         {
             float current = _triggerTime + _timeActive + _movementTime + _movementTime - Time.time;
             if (current >= 0)

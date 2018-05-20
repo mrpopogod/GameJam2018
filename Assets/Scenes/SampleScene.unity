@@ -1095,6 +1095,21 @@ Prefab:
       propertyPath: _transmitterMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 0316ef76e3407c145b1446321c3259ad, type: 2}
+    - target: {fileID: 114405788389988650, guid: 4c7753d483602c142afab10813562676,
+        type: 2}
+      propertyPath: _rotateRightMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 6f86948e73ebf004bb73b13179b71c14, type: 2}
+    - target: {fileID: 114405788389988650, guid: 4c7753d483602c142afab10813562676,
+        type: 2}
+      propertyPath: _rotateLeftMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: b9e245634d5468446abd9cac72a431fc, type: 2}
+    - target: {fileID: 114405788389988650, guid: 4c7753d483602c142afab10813562676,
+        type: 2}
+      propertyPath: _defaultMaterial
+      value: 
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c7753d483602c142afab10813562676, type: 2}
   m_IsPrefabParent: 0
@@ -1428,6 +1443,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 23
       objectReference: {fileID: 0}
+    - target: {fileID: 114840573936931146, guid: dfb2deccee6b30a4d8921709ee5758d6,
+        type: 2}
+      propertyPath: _timeActive
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114840573936931146, guid: dfb2deccee6b30a4d8921709ee5758d6,
+        type: 2}
+      propertyPath: _doorStaysOpen
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dfb2deccee6b30a4d8921709ee5758d6, type: 2}
   m_IsPrefabParent: 0
@@ -1498,7 +1523,7 @@ Prefab:
     - target: {fileID: 114980154960814872, guid: 0c4514fb23fb7384e97571fb2c9fab9a,
         type: 2}
       propertyPath: _nextLevel
-      value: Simple Timing
+      value: 1.Intro Level
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c4514fb23fb7384e97571fb2c9fab9a, type: 2}
@@ -1618,6 +1643,11 @@ Prefab:
         type: 2}
       propertyPath: _requiredReceivers
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114404195101353082, guid: 13be57547fb088f49b6206263c8e7dbd,
+        type: 2}
+      propertyPath: _rotateDirection
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13be57547fb088f49b6206263c8e7dbd, type: 2}
