@@ -78,6 +78,27 @@ public class ReceiverTrigger : MonoBehaviour {
 			_indicatorRenderer.material = _materialManager.transmitterMaterial;
 			break;
 		}
+
+		Color c;
+		switch (_laserType) {
+		case Laser.Type.Any:
+			c = Color.black;
+			break;
+		case Laser.Type.Red:
+			c = Color.red;
+			break;
+		case Laser.Type.Green:
+			c = Color.green;
+			break;
+		case Laser.Type.Blue:
+			c = Color.blue;
+			break;
+		default:
+			Debug.Assert (false, "Unhandled laser type");
+			c = Color.black;
+			break;
+		}
+		_indicatorRenderer.material.color = c;
 	}
 
 	public bool IsReceiverActive()
