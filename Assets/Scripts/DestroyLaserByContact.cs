@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DestroyLaserByContact : MonoBehaviour {
 
+    [SerializeField]
+    private float _playerDelay;
+
     private float _spawnTime;
 
     public void Start()
@@ -11,7 +14,7 @@ public class DestroyLaserByContact : MonoBehaviour {
         _spawnTime = Time.time;
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if (other.tag == "Receiver" || other.tag == "Glass")
         {
@@ -19,7 +22,7 @@ public class DestroyLaserByContact : MonoBehaviour {
         }
         else if (other.tag == "Player")
         {
-            if (Time.time - _spawnTime < 0.05f)
+            if (Time.time - _spawnTime < _playerDelay)
             {
                 return;
             }
