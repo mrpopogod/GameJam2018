@@ -36,5 +36,9 @@ public class PusherController : MonoBehaviour {
                 _face.gameObject.transform.localPosition = new Vector3(1.38f - current / _movementTime, _face.gameObject.transform.localPosition.y, _face.gameObject.transform.localPosition.z);
             }
         }
+        else
+        {
+            _face.gameObject.transform.localPosition = new Vector3(0.38f, _face.gameObject.transform.localPosition.y, _face.gameObject.transform.localPosition.z);
+        }
     }
 }
