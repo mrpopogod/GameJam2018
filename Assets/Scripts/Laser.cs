@@ -19,6 +19,7 @@ public class Laser : MonoBehaviour {
 	Mover _mover;
 	Renderer _renderer;
 	MaterialManager _materials;
+	private AudioManager _audioManager;
 
 	private void SetMover()
 	{
@@ -34,11 +35,16 @@ public class Laser : MonoBehaviour {
 	{
 		_materials = GameObject.Find ("MaterialManager").GetComponent<MaterialManager> ();
 	}
+	private void SetAudioManager()
+	{
+		_audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager> ();
+	}
 
 	private void SetAll()
 	{
 		SetMover ();
 		SetRenderer ();
+		SetAudioManager ();
 		SetMaterials ();
 	}
 
@@ -75,6 +81,9 @@ public class Laser : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (null == _audioManager)
+			SetAll ();
+		_audioManager.PlayLaserSound ();
 	}
 	
 	// Update is called once per frame
