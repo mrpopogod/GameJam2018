@@ -2,31 +2,129 @@
 
 public class ReceiverTrigger : MonoBehaviour {
 
-    [SerializeField]
-    private int _index;
+	public enum TriggerType
+	{
+		None,
+		Receiver,
+		Transmitter
+	}
+
+	public enum LaserType
+	{
+		GreenLaser,
+		BlueLaser,
+		RedLaser
+	}
+
+	[SerializeField]
+	TriggerType _triggerType;
+
+	public TriggerType triggerType { get { return _triggerType; } }
+
+	[SerializeField]
+	LaserType _laserType;
+
+	private MaterialManager _materialManager;
+
+	// Receiver Fields
 
     [SerializeField]
     private float _timeActive;
 
-    private float _triggerTime; 
+	private MeshRenderer _indicatorRenderer;
+	private float _lastLaserType;
+
+    private float _triggerTime;
+
+	// Transmitter Fields
+
+	[SerializeField]
+	private GameObject _shot;
+
+	[SerializeField]
+	private float _xOffset;
+
+	[SerializeField]
+	private float _yOffset;
+
+	[SerializeField]
+	private float _zOffset;
+
+	private void SetMaterialManager()
+	{
+		_materialManager = GameObject.Find ("MaterialManager").GetComponent<MaterialManager> ();
+	}
+	private void SetIndicator()
+	{
+		Transform trans = transform.Find ("Indicator");
+		if (null == trans)
+			return;
+		var indicator = trans.gameObject;
+		if (null == indicator)
+			return;
+		_indicatorRenderer = indicator.GetComponent<MeshRenderer> ();
+	}
+
+	private void UpdateIndicator()
+	{
+		if (null == _indicatorRenderer) {
+			Debug.Log ("null renderer");
+			return;
+		}
+		switch (_triggerType) {
+		case TriggerType.None:
+			_indicatorRenderer.enabled = false;
+			break;
+		case TriggerType.Receiver:
+			_indicatorRenderer.enabled = true;
+			_indicatorRenderer.material = _materialManager.ReceiverMaterial;
+			break;
+		case TriggerType.Transmitter:
+			_indicatorRenderer.enabled = true;
+			_indicatorRenderer.material = _materialManager.TransmitterMaterial;
+			break;
+		}
+	}
+
+	public bool IsReceiverActive()
+	{
+		return _triggerType == TriggerType.Receiver && (Time.time <= _triggerTime + _timeActive);
+	}
+
+	public void OnEnable()
+	{
+		SetMaterialManager ();
+		SetIndicator ();
+		UpdateIndicator ();
+	}
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Laser")
+		Debug.Log ("OnTriggerEnter");
+        if (other.tag == "Laser" && _triggerType == TriggerType.Receiver)
         {
             _triggerTime = Time.time;
             GameObject parent = transform.parent.gameObject;
-            parent.SendMessage("ActivateReceiver", _index);
+			Debug.Log ("Send message");
+            parent.SendMessage("ReceiverActivated");
             Destroy(other.gameObject);
         }
     }
 
-    public void Update()
-    {
-        if (Time.time > _triggerTime + _timeActive)
-        {
-            GameObject parent = transform.parent.gameObject;
-            parent.SendMessage("DeactivateReceiver", _index);
-        }
-    }
+	// Invoked when changes are made in inspector
+	public void OnValidate()
+	{
+		UpdateIndicator ();
+	}
+
+	public void FireLaser()
+	{
+		if (_triggerType != TriggerType.Transmitter)
+			return;
+
+		Debug.LogFormat ("Firing: {0}", _triggerType);
+		Instantiate(_shot, 
+			transform.position + Vector3.right * _xOffset + Vector3.up * _yOffset + Vector3.forward * _zOffset, 
+			transform.rotation * Quaternion.Euler(Vector3.left * 90.0f));
+	}
 }

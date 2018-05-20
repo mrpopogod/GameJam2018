@@ -20,47 +20,20 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
 
     public void Start()
     {
-        _triggeredReceivers = new bool[_receivers.Count];
+        //_triggeredReceivers = new bool[_receivers.Count];
     }
 
-    public void ActivateReceiver(int index)
+    public void ReceiverActivated()
     {
-        _triggeredReceivers[index] = true;
-        int numTriggered = 0;
-        foreach (bool triggered in _triggeredReceivers)
-        {
-            if (triggered)
-            {
-                numTriggered++;
-            }
-        }
-
-        if (numTriggered >= _requiredReceivers)
-        {
-            if (_debugText != null)
-            {
-                _debugText.text = "All receivers triggered";
-            }
-
-            foreach (GameObject emitter in _emitters)
-            {
-                emitter.SendMessage("FireLaser");
-            }
-
-            for (int i = 0; i < _triggeredReceivers.Length; i++)
-            {
-                _triggeredReceivers[i] = false;
-            }
-        }
-    }
-
-    public void DeactivateReceiver(int index)
-    {
-        if (_debugText != null)
-        {
-            _debugText.text = "";
-        }
-        
-        _triggeredReceivers[index] = false;
+		foreach (var receiver in _receivers) {
+			var trigger = receiver.GetComponent<ReceiverTrigger> ();
+			if (trigger.triggerType == ReceiverTrigger.TriggerType.Receiver && !trigger.IsReceiverActive ()) {
+				Debug.Log ("Receiver not active");
+				return;
+			}
+		}
+		foreach (var emitter in _receivers) {
+			emitter.GetComponent<ReceiverTrigger>().SendMessage ("FireLaser");
+		}
     }
 }
