@@ -1,11 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExitController : MonoBehaviour {
 
     [SerializeField]
     private List<GameObject> _triggers;
+
+    [SerializeField]
+    private string _nextLevel;
 
     private bool _isActive;
 
@@ -44,6 +47,10 @@ public class ExitController : MonoBehaviour {
         if (other.tag == "Player")
         {
             Debug.Log("Finished level!");
+            if (_nextLevel.Length > 0)
+            {
+                SceneManager.LoadSceneAsync(_nextLevel, LoadSceneMode.Single);
+            }
         }
     }
 }
