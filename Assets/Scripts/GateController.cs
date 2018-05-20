@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GateController : MonoBehaviour {
 
@@ -16,7 +14,7 @@ public class GateController : MonoBehaviour {
     [SerializeField]
     private float _movementTime;
 
-    private float _triggerTime;
+    private float _triggerTime = -100f;
 	
     public void Energize()
     {
@@ -25,22 +23,22 @@ public class GateController : MonoBehaviour {
 
 	public void Update()
     {
-        if (Time.time > _triggerTime + _timeActive)
+        if (Time.time > _triggerTime + _timeActive + _movementTime)
         {
             float current = _triggerTime + _timeActive + _movementTime + _movementTime - Time.time;
             if (current >= 0)
             {
-                _rightDoor.gameObject.transform.position = new Vector3(0.25f + current / _movementTime * 0.5f, transform.position.y, transform.position.z);
-                _leftDoor.gameObject.transform.position = new Vector3(-0.25f - current / _movementTime * 0.5f, transform.position.y, transform.position.z);
+                _rightDoor.gameObject.transform.localPosition = new Vector3(0.25f + current / _movementTime * 0.5f, _rightDoor.gameObject.transform.localPosition.y, _rightDoor.gameObject.transform.localPosition.z);
+                _leftDoor.gameObject.transform.localPosition = new Vector3(-0.25f - current / _movementTime * 0.5f, _leftDoor.transform.localPosition.y, _leftDoor.transform.localPosition.z);
             }
         }
-        else
+        else if (Time.time < _triggerTime + _movementTime)
         {
             float current = _triggerTime + _movementTime - Time.time;
             if (current >= 0)
             {
-                _rightDoor.gameObject.transform.position = new Vector3(0.75f - current / _movementTime * 0.5f, transform.position.y, transform.position.z);
-                _leftDoor.gameObject.transform.position = new Vector3(-0.75f + current / _movementTime * 0.5f, transform.position.y, transform.position.z);
+                _rightDoor.gameObject.transform.localPosition = new Vector3(0.75f - current / _movementTime * 0.5f, _rightDoor.gameObject.transform.localPosition.y, _rightDoor.gameObject.transform.localPosition.z);
+                _leftDoor.gameObject.transform.localPosition = new Vector3(-0.75f + current / _movementTime * 0.5f, _leftDoor.transform.localPosition.y, _leftDoor.transform.localPosition.z);
             }
         }
     }
