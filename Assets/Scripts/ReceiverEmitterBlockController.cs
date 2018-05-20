@@ -26,6 +26,7 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
     [SerializeField]
     private Text _debugText;
 
+    private MaterialManager _materialManager;
     private uint _configuration = 0;
     private const uint RECEIVER = 1;
     private const uint EMITTER = 16;
@@ -60,6 +61,40 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
         return (value >> count) | (value << (32 - count));
     }
 
+    private void SetMaterialManager()
+    {
+        _materialManager = GameObject.Find("MaterialManager").GetComponent<MaterialManager>();
+    }
+
+    public void OnEnable()
+    {
+        SetMaterialManager();
+        UpdateRotationIndicator();
+    }
+
+    // Invoked when changes are made in inspector
+    public void OnValidate()
+    {
+        UpdateRotationIndicator();
+    }
+
+    private void UpdateRotationIndicator()
+    {
+        var meshRenderer = GetComponent<MeshRenderer>();
+        switch (_rotateDirection)
+        {
+            case RotateDirection.Left:
+                meshRenderer.material = _materialManager.rotateLeftMaterial;
+                break;
+            case RotateDirection.Right:
+                meshRenderer.material = _materialManager.rotateRightMaterial;
+                break;
+            case RotateDirection.None:
+                meshRenderer.material = _materialManager.defaultMaterial;
+                break;
+        }
+    }
+
     public void ReceiverActivated()
     {
         if (!IsActive())
@@ -91,7 +126,7 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
             foreach (var emitter in _receivers)
             {
                 UpdateEmitter(emitter);
-                _configuration = RotateRight(_configuration, 8);
+                _configuration = RotateLeft(_configuration, 8);
             }
         }
     }

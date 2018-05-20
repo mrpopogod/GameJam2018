@@ -52,11 +52,12 @@ public class ReceiverTrigger : MonoBehaviour {
 
 	private void SetMaterialManager()
 	{
-		_materialManager = GameObject.Find ("MaterialManager").GetComponent<MaterialManager> ();
+		_materialManager = GameObject.Find("MaterialManager").GetComponent<MaterialManager> ();
 	}
+
 	private void SetIndicator()
 	{
-		Transform trans = transform.Find ("Indicator");
+		Transform trans = transform.Find("Indicator");
 		if (null == trans)
 			return;
 		var indicator = trans.gameObject;
@@ -77,11 +78,11 @@ public class ReceiverTrigger : MonoBehaviour {
 			break;
 		case TriggerType.Receiver:
 			_indicatorRenderer.enabled = true;
-			_indicatorRenderer.material = _materialManager.ReceiverMaterial;
+			_indicatorRenderer.material = _materialManager.receiverMaterial;
 			break;
 		case TriggerType.Transmitter:
 			_indicatorRenderer.enabled = true;
-			_indicatorRenderer.material = _materialManager.TransmitterMaterial;
+			_indicatorRenderer.material = _materialManager.transmitterMaterial;
 			break;
 		}
 	}

@@ -1085,6 +1085,16 @@ Prefab:
       propertyPath: m_Name
       value: MaterialManager
       objectReference: {fileID: 0}
+    - target: {fileID: 114405788389988650, guid: 4c7753d483602c142afab10813562676,
+        type: 2}
+      propertyPath: _receiverMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 9ea69960797de764994acf50ca023c6f, type: 2}
+    - target: {fileID: 114405788389988650, guid: 4c7753d483602c142afab10813562676,
+        type: 2}
+      propertyPath: _transmitterMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 0316ef76e3407c145b1446321c3259ad, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c7753d483602c142afab10813562676, type: 2}
   m_IsPrefabParent: 0

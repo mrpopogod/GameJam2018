@@ -4,17 +4,28 @@ using UnityEngine;
 
 public class MaterialManager : MonoBehaviour {
 
-	public Material ReceiverMaterial;
+    [SerializeField]
+    private Material _receiverMaterial;
 
-	public Material TransmitterMaterial;
+    public Material receiverMaterial { get { return _receiverMaterial; } }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    [SerializeField]
+    private Material _transmitterMaterial;
+
+    public Material transmitterMaterial { get { return _transmitterMaterial; } }
+
+    [SerializeField]
+    private Material _rotateRightMaterial;
+
+    public Material rotateRightMaterial { get { return _rotateRightMaterial; } }
+
+    [SerializeField]
+    private Material _rotateLeftMaterial;
+
+    public Material rotateLeftMaterial { get { return _rotateLeftMaterial; } }
+
+    [SerializeField]
+    private Material _defaultMaterial;
+
+    public Material defaultMaterial { get { return _defaultMaterial; } }
 }
