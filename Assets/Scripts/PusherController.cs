@@ -6,9 +6,6 @@ public class PusherController : MonoBehaviour {
     private GameObject _face;
 
     [SerializeField]
-    private float _timeActive;
-
-    [SerializeField]
     private float _movementTime;
 
     private float _triggerTime = -100.0f;
@@ -20,9 +17,9 @@ public class PusherController : MonoBehaviour {
 
     public void Update()
     {
-        if (Time.time > _triggerTime + _timeActive + _movementTime)
+        if (Time.time > _triggerTime + _movementTime)
         {
-            float current = _triggerTime + _timeActive + _movementTime + _movementTime - Time.time;
+            float current = _triggerTime + _movementTime + _movementTime - Time.time;
             if (current >= 0)
             {
                 _face.gameObject.transform.localPosition = new Vector3(0.38f + current / _movementTime, _face.gameObject.transform.localPosition.y, _face.gameObject.transform.localPosition.z);

@@ -14,7 +14,7 @@ public class GateController : MonoBehaviour {
     [SerializeField]
     private float _movementTime;
 
-    private float _triggerTime = -100f;
+    private float _triggerTime = -100.0f;
 	
     public void Energize()
     {
