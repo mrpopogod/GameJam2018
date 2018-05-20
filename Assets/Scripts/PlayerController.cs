@@ -21,12 +21,10 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody _rb;
     private float _nextFire;
 
-    // Use this for initialization
     public void Start () {
         _rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     public void Update ()
     {
         UpdateVelocity();
