@@ -6,7 +6,7 @@ public class DestroyLaserByContact : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" || other.tag == "Receiver")
+        if (other.tag == "Player" || other.tag == "Receiver" || other.tag == "Glass")
         {
             return;
         }
