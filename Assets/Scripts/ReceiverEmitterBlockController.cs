@@ -18,15 +18,7 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
 
     public void ReceiverActivated()
     {
-        int numOn = 0;
-        foreach (var receiver in _receivers) {
-			var trigger = receiver.GetComponent<ReceiverTrigger> ();
-			if (trigger.triggerType == ReceiverTrigger.TriggerType.Receiver && trigger.IsReceiverActive ()) {
-                numOn++;
-			}
-		}
-
-        if (numOn < _requiredReceivers)
+        if (!IsActive())
         {
             return;
         }
@@ -39,5 +31,20 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
         {
             gameObject.SendMessage("Energize");
         }
+    }
+
+    public bool IsActive()
+    {
+        int numOn = 0;
+        foreach (var receiver in _receivers)
+        {
+            var trigger = receiver.GetComponent<ReceiverTrigger>();
+            if (trigger.triggerType == ReceiverTrigger.TriggerType.Receiver && trigger.IsReceiverActive())
+            {
+                numOn++;
+            }
+        }
+
+        return numOn >= _requiredReceivers;
     }
 }

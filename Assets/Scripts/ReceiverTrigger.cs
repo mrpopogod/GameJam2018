@@ -121,7 +121,6 @@ public class ReceiverTrigger : MonoBehaviour {
 	{
 		if (_triggerType != TriggerType.Transmitter)
         {
-            _triggerTime = -100.0f;
             return;
         }
 
