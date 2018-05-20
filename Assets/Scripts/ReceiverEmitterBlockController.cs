@@ -37,7 +37,11 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
 
         if (numTriggered >= _requiredReceivers)
         {
-            _debugText.text = "All receivers triggered";
+            if (_debugText != null)
+            {
+                _debugText.text = "All receivers triggered";
+            }
+
             foreach (GameObject emitter in _emitters)
             {
                 emitter.SendMessage("FireLaser");
@@ -52,7 +56,11 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
 
     public void DeactivateReceiver(int index)
     {
-        _debugText.text = "";
+        if (_debugText != null)
+        {
+            _debugText.text = "";
+        }
+        
         _triggeredReceivers[index] = false;
     }
 }
