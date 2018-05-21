@@ -20,17 +20,16 @@ public class DestroyLaserByContact : MonoBehaviour {
         {
             return;
         }
-        else if (other.tag == "Player")
+
+		// Laser can't destroy it's source right after firing
+		var laser = GetComponent<Laser> ();
+		if (null != laser && laser.Source == other.gameObject && Time.time - _spawnTime < _playerDelay)
+			return;
+		
+
+		if (other.tag == "Player")
         {
-            if (Time.time - _spawnTime < _playerDelay)
-            {
-                return;
-            }
-            else
-            {
-                Destroy(other.gameObject);
-                Destroy(gameObject);
-            }
+			Destroy(other.gameObject);
         }
 
         Destroy(gameObject);
