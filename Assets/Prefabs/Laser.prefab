@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _source: {fileID: 0}
 --- !u!114 &114374406653642202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0419e3dd4a6344a459a4dccfc365e14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerDelay: 0.15
+  _playerDelay: 0.3
 --- !u!114 &114386870792874182
 MonoBehaviour:
   m_ObjectHideFlags: 1
