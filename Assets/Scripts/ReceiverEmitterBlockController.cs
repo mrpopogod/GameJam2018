@@ -24,6 +24,9 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
     private int _requiredReceivers;
 
     [SerializeField]
+    private bool _isTarget;
+
+    [SerializeField]
     private Text _debugText;
 
     private MaterialManager _materialManager;
@@ -92,6 +95,22 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
             case RotateDirection.None:
                 meshRenderer.material = _materialManager.defaultMaterial;
                 break;
+        }
+    }
+
+    public void Update()
+    {
+        if (_isTarget)
+        {
+            var meshRenderer = GetComponent<MeshRenderer>();
+            if (IsActive())
+            {
+                meshRenderer.material.color = Color.green;
+            }
+            else
+            {
+                meshRenderer.material.color = Color.red;
+            }
         }
     }
 
