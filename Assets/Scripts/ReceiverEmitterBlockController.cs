@@ -83,6 +83,8 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
 
     private void UpdateRotationIndicator()
     {
+        if (null == _materialManager)
+            SetMaterialManager();
         var meshRenderer = GetComponent<MeshRenderer>();
         switch (_rotateDirection)
         {
