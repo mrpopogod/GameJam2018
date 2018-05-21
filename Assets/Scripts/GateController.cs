@@ -57,7 +57,7 @@ public class GateController : MonoBehaviour {
                 _leftDoor.gameObject.transform.localPosition = new Vector3(-0.75f + current / _movementTime * 0.5f, _leftDoor.transform.localPosition.y, _leftDoor.transform.localPosition.z);
             }
         }
-        else
+        else if (!_doorStaysOpen)
         {
             _rightDoor.gameObject.transform.localPosition = new Vector3(0.25f, _rightDoor.transform.localPosition.y, _rightDoor.transform.localPosition.z);
             _leftDoor.gameObject.transform.localPosition = new Vector3(-0.25f, _leftDoor.transform.localPosition.y, _leftDoor.transform.localPosition.z);
