@@ -66,30 +66,22 @@ public class PlayerController : MonoBehaviour {
 
     private void UpdateVelocity()
     {
-        int x = 0;
-        int z = 0;
-        if (Input.GetKey(KeyCode.W))
-        {
-            z += 1;
-        }
+        float x = 0;
+        float z = 0;
+        bool posZ = Input.GetKey(KeyCode.W);
+        bool negZ = Input.GetKey(KeyCode.S);
+        bool moveZ = posZ != negZ;
+        bool posX = Input.GetKey(KeyCode.D);
+        bool negX = Input.GetKey(KeyCode.A);
+        bool moveX = posX != negX;
+        float amount = _playerSpeed;
+        if (moveZ && moveX)
+            amount = Mathf.Sqrt(2*amount);
+        if (moveZ)
+            z = posZ ? amount : -amount;
+        if (moveX)
+            x = posX ? amount : -amount;
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            z -= 1;
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            x -= 1;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            x += 1;
-        }
-
-        // TODO: multiplicand of speed should use pythagorus
-
-        _rb.velocity = new Vector3(x * _playerSpeed, 0.0f, z * _playerSpeed);
+        _rb.velocity = new Vector3(x, 0.0f, z);
     }
 }
