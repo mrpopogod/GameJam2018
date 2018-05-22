@@ -800,6 +800,7 @@ MonoBehaviour:
   - {fileID: 1987139886967608}
   _linkedObjects: []
   _requiredReceivers: 0
+  _isTarget: 0
   _debugText: {fileID: 0}
 --- !u!114 &114833371843847050
 MonoBehaviour:

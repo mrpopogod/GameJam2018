@@ -69,7 +69,7 @@ public class Laser : MonoBehaviour {
 				_renderer.material = _materials.redMaterial;
 				break;
 			case Type.Green:
-				_mover.Speed = 10;
+				_mover.Speed = 5;
 				_renderer.material = _materials.greenMaterial;
 				break;
 			case Type.Blue:
@@ -87,6 +87,10 @@ public class Laser : MonoBehaviour {
 	void Start () {
 		if (null == _audioManager)
 			SetAll ();
+        if (this.ToString() == "LaserNoSound")
+        {
+            return;
+        }
 		_audioManager.PlayLaserSound ();
 	}
 	

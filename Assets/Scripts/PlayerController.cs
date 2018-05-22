@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour {
         UpdateVelocity();
         HandleShot();
         CheckForRestart();
+        CheckForLevelSelect();
     }
 
     private void CheckForRestart()
@@ -41,6 +42,14 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKey(KeyCode.G))
         {
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        }
+    }
+
+    private void CheckForLevelSelect()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadSceneAsync("0.Level Select");
         }
     }
 

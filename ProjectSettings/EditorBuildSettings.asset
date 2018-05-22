@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/0.Level Select.unity
+    guid: 0b1a64ae8667d034c99803d77ccbaf04
+  - enabled: 1
     path: Assets/Scenes/1.Intro Level.unity
     guid: a902d9b912b91b14cad7832f771b2356
   - enabled: 1
@@ -18,18 +21,18 @@ EditorBuildSettings:
     path: Assets/Scenes/3.Simple Timing.unity
     guid: 7bb27ea1ac78c0f42915b0993c716e07
   - enabled: 1
+    path: Assets/Scenes/3.5.Block The Path.unity
+    guid: 05894acfddebcf047bcabddb7fbcce20
+  - enabled: 1
     path: Assets/Scenes/4.Laser Obstacle Course.unity
     guid: 8e4d525e451c9894cb0410d84bde0e2c
-  - enabled: 1
-    path: Assets/Scenes/4.5.Block The Path.unity
-    guid: 05894acfddebcf047bcabddb7fbcce20
   - enabled: 1
     path: Assets/Scenes/5.Rotating Laser Block.unity
     guid: 6939e856b2e4a3444b2f3d338ead5a97
   - enabled: 1
-    path: Assets/Scenes/6.PH.unity
+    path: Assets/Scenes/6.If You Can Dodge a Laser....unity
     guid: a3ab46b9e5f0c634caab476bdab229fd
   - enabled: 1
-    path: Assets/Scenes/7.PH.unity
+    path: Assets/Scenes/7.Just You and Your Companion.unity
     guid: 4bb1c42e6896830498cfce0bf53b32ab
   m_configObjects: {}
