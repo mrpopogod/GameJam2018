@@ -640,7 +640,7 @@ Prefab:
     - target: {fileID: 114980154960814872, guid: 0c4514fb23fb7384e97571fb2c9fab9a,
         type: 2}
       propertyPath: _nextLevel
-      value: 7.PH
+      value: 7.Just You and Your Companion
       objectReference: {fileID: 0}
     - target: {fileID: 114980154960814872, guid: 0c4514fb23fb7384e97571fb2c9fab9a,
         type: 2}

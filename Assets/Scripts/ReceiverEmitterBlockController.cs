@@ -66,7 +66,11 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
 
     private void SetMaterialManager()
     {
-        _materialManager = GameObject.Find("MaterialManager").GetComponent<MaterialManager>();
+        var materialManagerObj = GameObject.Find("MaterialManager");
+        if (materialManagerObj != null)
+        {
+            _materialManager = materialManagerObj.GetComponent<MaterialManager>();
+        }
     }
 
     public void OnEnable()
@@ -75,16 +79,19 @@ public class ReceiverEmitterBlockController : MonoBehaviour {
         UpdateRotationIndicator();
     }
 
-    // Invoked when changes are made in inspector
-    public void OnValidate()
-    {
-        UpdateRotationIndicator();
-    }
+    //// Invoked when changes are made in inspector
+    //public void OnValidate()
+    //{
+    //    UpdateRotationIndicator();
+    //}
 
     private void UpdateRotationIndicator()
     {
         if (null == _materialManager)
+        {
             SetMaterialManager();
+        }
+
         var meshRenderer = GetComponent<MeshRenderer>();
         switch (_rotateDirection)
         {
