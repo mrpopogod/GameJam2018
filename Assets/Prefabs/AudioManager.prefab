@@ -151,4 +151,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dbf300989e651344380d99ea3333338c, type: 3}
   - {fileID: 8300000, guid: 1fe8845118160794e9d75fd37362fea2, type: 3}
   - {fileID: 8300000, guid: f772717c51cebe54bb9e5b633e731d0a, type: 3}
-  audioSource: {fileID: 82158347640958950}
+  deathSound: {fileID: 8300000, guid: 7695dbba6cc4dd843919111c935ec839, type: 3}
+  teleportSound: {fileID: 8300000, guid: 7b0e999c3b7b6bd44bd470174b996685, type: 3}
+  eventSound: {fileID: 8300000, guid: a1ef536e82ee22946a478de32f2fa8d6, type: 3}

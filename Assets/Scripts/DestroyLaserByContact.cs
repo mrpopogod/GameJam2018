@@ -30,6 +30,7 @@ public class DestroyLaserByContact : MonoBehaviour {
 		if (other.tag == "Player")
         {
 			Destroy(other.gameObject);
+            GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayDeathSound();
         }
 
         Destroy(gameObject);
