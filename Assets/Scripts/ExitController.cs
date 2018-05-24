@@ -22,6 +22,8 @@ public class ExitController : MonoBehaviour {
         bool allActive = true;
 		foreach (var trigger in _triggers)
         {
+            if (null == trigger)
+                continue;
             var receiverBlockController = trigger.GetComponent<ReceiverEmitterBlockController>();
             if (receiverBlockController != null)
             {
